@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+
+
+	<table-filter match-catalog="tdb1" match-name="tbuserb" />
+	<table catalog="tdb1" name="tbuserb" class="User">
+		<column name="NAME"></column>
+		<column name="USER_ID"></column>
+		<column name="SURNAME"></column>
+		<column name="AGE"></column>
+	</table>
+</hibernate-reverse-engineering>
