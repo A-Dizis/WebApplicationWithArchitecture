@@ -1,4 +1,4 @@
-package agdi.po.def;
+package cfg.po.def;
 
 import cfg.infrastructure.PersistentObject.def.PO;
 

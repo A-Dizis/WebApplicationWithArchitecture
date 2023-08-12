@@ -1,11 +1,10 @@
-package agdi;
+package cfg;
 
 
-import agdi.op.def.question.GetNextIdQuestion;
-import agdi.po.def.User;
-import cfg.helpers.RandomUtility;
 import cfg.infrastructure.PersistenceWorkers.def.PersistenceWorker;
 import cfg.infrastructure.factories.impl.Factory;
+import cfg.op.def.question.GetNextIdQuestion;
+import cfg.po.def.User;
 
 /**
  * @author dizisa
@@ -17,22 +16,29 @@ public class MainClass {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-
+		
 		Factory.getInstance();
-	
+		
 		User user = Factory.create(User.class);
 		
-		GetNextIdQuestion qr = Factory.create(GetNextIdQuestion.class);
-
-		PersistenceWorker<User> pwUser = Factory.createPw(User.class);
-
-		for(int i=0; i<100; i++) {
-			user.setAge(RandomUtility.getAge(20, 60));
-			user.setName(RandomUtility.getRandomName());
-			user.setSurname(RandomUtility.getRandomSurname());
-			user.setId(qr.getNextId().toString());
-			pwUser.store(user);
-		}
+		user.setAge(12);
+	
+//		GetNextIdQuestion qr = Factory.create(GetNextIdQuestion.class);
+//
+//		PersistenceWorker<User> pwUser = Factory.createPw(User.class);
+//		User user = Factory.create(User.class);
+//		
+//		user.setId(100);
+//		
+//		System.out.println(pwUser.read(user));
+//		
+//		for(int i=0; i<100; i++) {
+//			user.setAge(RandomUtility.getAge(20, 60));
+//			user.setName(RandomUtility.getRandomName());
+//			user.setSurname(RandomUtility.getRandomSurname());
+//			user.setUserId(qr.getNextId().toString());
+//			pwUser.store(user);
+//		}
 
 //
 //

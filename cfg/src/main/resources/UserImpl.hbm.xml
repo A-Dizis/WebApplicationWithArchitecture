@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jun 4, 2023, 1:05:43 AM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="tdb1" name="cfg.po.impl.UserImpl" optimistic-lock="none" table="tbuserb">
+        <id name="id" type="string">
+            <column length="10" name="USER_ID"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="name" type="string">
+            <column length="10" name="NAME"/>
+        </property>
+        <property name="surname" type="string">
+            <column length="10" name="SURNAME"/>
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="AGE"/>
+        </property>
+    </class>
+</hibernate-mapping>

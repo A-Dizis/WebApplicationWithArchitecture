@@ -1,4 +1,4 @@
-package agdi.infrastructure.jdbc.impl;
+package cfg.infrastructure.jdbc.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

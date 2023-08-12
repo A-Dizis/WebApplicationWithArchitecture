@@ -1,7 +1,8 @@
 package agdi.infrastructure.PersistenceWorkers.impl;
 
-import agdi.infrastructure.PersistenceWorkers.def.PersistenceWorker;
 import agdi.po.def.User;
+import cfg.infrastructure.PersistenceWorkers.def.PersistenceWorker;
+import cfg.infrastructure.PersistenceWorkers.impl.AbstractWorker;
 
 /**
  * @author dizisa
@@ -29,7 +30,7 @@ implements PersistenceWorker<User> {
 	 * 
 	 */
 	public User update(User user) throws Exception {
-			User oldUser = session.get(User.class, user.getUserId());
+			User oldUser = readHbm(user);
 			oldUser.setAge(user.getAge());
 			oldUser.setSurname(user.getSurname());
 			oldUser.setName(user.getName());

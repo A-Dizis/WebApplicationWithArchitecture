@@ -12,7 +12,8 @@
 		
 		<modules>
 				<module>agdi</module>
-				<module>test</module>
+				<module>agdiWeb</module>
+				<module>cfg</module>
 		</modules>
 		
 		<properties>
