@@ -1,4 +1,4 @@
-package agdi.infrastructure.PersistenceWorkers.impl;
+package agdi.po.impl;
 
 import agdi.po.def.User;
 import cfg.infrastructure.PersistenceWorkers.def.PersistenceWorker;
@@ -8,7 +8,7 @@ import cfg.infrastructure.PersistenceWorkers.impl.AbstractWorker;
  * @author dizisa
  *
  */
-public class PwUser 
+public class UserPwImpl 
 extends AbstractWorker<User> 
 implements PersistenceWorker<User> {
 

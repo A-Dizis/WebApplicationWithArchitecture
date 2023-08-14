@@ -6,7 +6,7 @@
 	</welcome-file-list>
 	<distributable />
 	<servlet>
-		<description>test</description>
+		<description>agdiWeb</description>
 		<display-name>TestService</display-name>
 		<servlet-name>TestService</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>

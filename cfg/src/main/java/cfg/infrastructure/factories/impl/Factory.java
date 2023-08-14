@@ -3,9 +3,6 @@ package cfg.infrastructure.factories.impl;
 import java.io.IOException;
 import java.io.InvalidClassException;
 
-import cfg.infrastructure.factories.impl.Factory;
-import cfg.infrastructure.factories.impl.FactoryInitializer;
-
 /**
  * @author dizisa
  * 
@@ -20,12 +17,11 @@ public class Factory extends FactoryInitializer {
 	private static Factory instance = null;
 	
 	/**
-	 * Hidden constructor.
+	 * Hidden empty constructor.
 	 * @throws IOException 
 	 * @throws ClassNotFoundException 
 	 */
-	private Factory() throws ClassNotFoundException, IOException {
-		FactoryInitializer.getClassMapper();
+	private Factory() {
 	}
 	
 	/**
@@ -45,40 +41,35 @@ public class Factory extends FactoryInitializer {
 	}
 
 	/**
-	 * Creates a persistent worker for the entity.
+	 * Creates a instance of the persistent worker for the entity.
 	 * 
 	 * @param <T>
 	 * @param <G>
 	 * @param c
 	 * @return PwClass
-	 * @throws Exception 
+	 * @throws ClassNotFoundException 
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
 	 * @throws InvalidClassException 
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T, G> G createPw(Class<T> c) throws Exception {
-		if (defToImpl.containsKey(c)) {
-			return (G) FactoryInitializer.getPersistenceWorker(defToImpl, c).newInstance();
-		}
-		return null;
+	public static <T, G> G createPw(Class<T> c) throws InvalidClassException, InstantiationException, IllegalAccessException, ClassNotFoundException {
+		return (G) FactoryInitializer.getPersistenceWorker(c).newInstance();
 	};
 
 	/**
 	 * Creates an instance of the specified interface or class.
 	 * 
 	 * @param <T>
-	 * @param t
+	 * @param t 
 	 * @return PO
 	 * @throws Exception 
 	 * @throws InstantiationException 
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T create(Class<T> t) throws Exception {
-		if (defToImpl.containsKey(t)) {
-			Class<?> cls = defToImpl.get(t);
-			return (T) cls.newInstance();
-		}
-		return null;
+		
+			return (T) FactoryInitializer.getImplementation(t).newInstance();
+
 	}		
 }

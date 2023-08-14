@@ -14,8 +14,8 @@ import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import agdi.op.def.question.GetNextIdQuestion;
 import agdi.po.def.User;
-import agdi.po.impl.UserImpl;
 import cfg.infrastructure.PersistenceWorkers.def.PersistenceWorker;
 import cfg.infrastructure.factories.impl.Factory;
 
@@ -27,6 +27,15 @@ import cfg.infrastructure.factories.impl.Factory;
 @Path("/testservice")
 public class TestService extends Application {
 
+	public TestService() {
+		try {
+			Factory.getInstance();
+		} catch (ClassNotFoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * @return
 	 */
@@ -50,10 +59,6 @@ public class TestService extends Application {
 		User user = Factory.create(User.class);
 
 		PersistenceWorker<User> pwUser = Factory.createPw(User.class);
-
-		Set<User> users = new HashSet<>();
-
-		System.out.println(user);
 		
 		user.setId(id);
 
@@ -64,9 +69,19 @@ public class TestService extends Application {
 		return Response.ok(user).build();
 	}
 	
-	public static void main(String[] args) throws ClassNotFoundException, IOException {
-		Factory.getInstance();
-	}
-	
+	public static void main(String[] args) throws Exception {
+	Factory.getInstance();
+		
+		User user = Factory.create(User.class);
 
+		PersistenceWorker<User> pwUser = Factory.createPw(User.class);
+
+		
+		user.setId(100);
+
+		user = pwUser.read(user);
+
+		System.out.println(user);
+		
+	}
 }
